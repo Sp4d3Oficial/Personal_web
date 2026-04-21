@@ -1,0 +1,526 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    height: 100%;
+}
+
+body {
+    background-color: #2b2b2b;
+    color: #e6e6e6;
+    font-family: "Courier New", Courier, monospace;
+    line-height: 26px;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+header {
+    padding: 40px;
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+header p {
+    padding: 20px 0 0 0;
+}
+
+nav {
+    margin-left: auto;
+}
+
+h1 {
+    font-size: 48px;
+    letter-spacing: 2px;
+}
+
+h2 {
+    margin-top: 40px;
+    margin-bottom: 10px;
+    font-size: 24px;
+}
+
+p {
+    max-width: 800px;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 25px;
+    justify-content: flex-end;
+    flex-wrap: wrap;
+}
+
+nav li {
+    display: inline;
+}
+
+nav a {
+    text-decoration: none;
+    color: #00ff9c;
+    white-space: nowrap;
+    transition: 0.2s;
+    font-size: 16px;
+}
+
+nav a::before {
+    content: "[ ";
+}
+
+nav a::after {
+    content: " ]";
+}
+
+nav a:hover {
+    color: #ffffff;
+}
+
+nav a.active {
+    color: #ffffff;
+    font-weight: bold;
+}
+
+main {
+    padding: 40px;
+    max-width: calc(100% - 520px);
+    flex: 1;
+}
+
+main a {
+    text-decoration: none;
+    color: #00ff9c;
+    white-space: nowrap;
+    transition: 0.2s;
+    font-size: 20px;
+}
+
+main a::before {
+    content: "{ ";
+}
+
+main a::after {
+    content: " }";
+}
+
+main a:hover {
+    color: #ffffff;
+}
+
+footer {
+    min-height: 50px;
+    padding: 25px 40px;
+    border-top: 1px solid #444;
+    font-size: 14px;
+    color: #888;
+    line-height: 20px;
+    margin-top: auto;
+}
+
+::selection {
+    background: #00ff9c;
+    color: #000;
+}
+
+.ascii-art {
+    position: fixed;
+    top: 50%;
+    right: 40px;
+    width: 520px;
+    transform: translateY(-50%);
+    margin: 0;
+    font-family: monospace;
+    font-size: 12px;
+    line-height: 12px;
+    color: #00ff9c;
+    opacity: 0.85;
+    white-space: pre;
+    pointer-events: none;
+    z-index: 1;
+    animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+    0% {
+        transform: translateY(-50%);
+        opacity: 0.7;
+    }
+    50% {
+        transform: translateY(calc(-50% - 10px));
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(-50%);
+        opacity: 0.7;
+    }
+}
+
+/* =========================================================
+   PORTFOLIO: profile links + machine cards
+   ========================================================= */
+
+.profile-links {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 18px;
+    margin-top: 10px;
+}
+
+.machine-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 20px;
+    margin-top: 20px;
+    max-width: 900px;
+}
+
+.machine-card {
+    border: 1px solid #00ff9c;
+    background: rgba(0, 255, 156, 0.03);
+    padding: 20px;
+    transition: background 0.2s, box-shadow 0.2s, transform 0.2s;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+.machine-card::before {
+    content: "";
+    position: absolute;
+    inset: -1px;
+    border-left: 3px solid transparent;
+    pointer-events: none;
+    transition: border-color 0.2s;
+}
+
+.machine-card:hover {
+    background: rgba(0, 255, 156, 0.08);
+    box-shadow: 0 0 14px rgba(0, 255, 156, 0.25);
+    transform: translateY(-2px);
+}
+
+.machine-card:hover::before {
+    border-left-color: #00ff9c;
+}
+
+.card-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 10px;
+    margin-bottom: 10px;
+    flex-wrap: wrap;
+}
+
+.machine-card h3 {
+    font-size: 18px;
+    color: #00ff9c;
+    letter-spacing: 1px;
+    line-height: 22px;
+}
+
+.machine-card h3::before {
+    content: "> ";
+    color: #00ff9c;
+}
+
+.badges {
+    list-style: none;
+    display: flex;
+    gap: 6px;
+    flex-wrap: wrap;
+}
+
+.badge {
+    font-size: 11px;
+    padding: 2px 8px;
+    border: 1px solid currentColor;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    line-height: 16px;
+    font-family: monospace;
+}
+
+.badge-platform {
+    background: #00ff9c;
+    border-color: #00ff9c;
+    color: #000;
+    font-weight: bold;
+}
+
+.badge-easy    { color: #00ff9c; }
+.badge-medium  { color: #ffcc00; }
+.badge-hard    { color: #ff8a4c; }
+.badge-insane  { color: #ff4c6a; }
+
+.machine-card p {
+    font-size: 14px;
+    line-height: 20px;
+    color: #cfcfcf;
+    margin-bottom: 14px;
+    max-width: none;
+}
+
+.tags {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px 12px;
+    font-size: 12px;
+    margin-bottom: 14px;
+}
+
+.tags li {
+    color: #888;
+    font-family: monospace;
+}
+
+.tags li::before {
+    content: "#";
+    color: #00ff9c;
+    margin-right: 1px;
+}
+
+.card-foot {
+    margin-top: auto;
+    padding-top: 10px;
+    border-top: 1px dashed #444;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    font-size: 12px;
+    color: #888;
+    flex-wrap: wrap;
+}
+
+/* Override global "{ ... }" link decoration for card links so they don't look cluttered */
+.machine-card .writeup-link {
+    font-size: 13px;
+    white-space: nowrap;
+}
+
+/* Portfolio-specific: bottom-anchored ASCII (not the fixed decorative one) */
+.ascii-bottom {
+    position: static;
+    transform: none;
+    width: 100%;
+    max-width: 400px;
+    margin: 50px auto 0 auto;
+    text-align: center;
+    font-size: 10px;
+    line-height: 10px;
+    animation: none;
+    opacity: 0.5;
+}
+
+/* Portfolio page: no fixed-right ASCII, so main can use full width */
+.page-portfolio main {
+    max-width: 100%;
+}
+
+/* Empty state (no write-ups published yet) */
+.empty-state {
+    border: 1px dashed #00ff9c;
+    background: rgba(0, 255, 156, 0.03);
+    padding: 28px 26px;
+    margin-top: 20px;
+    max-width: 720px;
+}
+
+.empty-state-status {
+    color: #00ff9c;
+    font-family: monospace;
+    font-size: 15px;
+    letter-spacing: 1px;
+    margin-bottom: 12px;
+}
+
+.empty-state-status::before {
+    content: ">";
+    display: inline-block;
+    margin-right: 8px;
+    animation: blink 1.1s step-end infinite;
+}
+
+.empty-state-text {
+    color: #cfcfcf;
+    font-size: 14px;
+    line-height: 22px;
+    margin-bottom: 16px;
+    max-width: none;
+}
+
+.empty-state a {
+    font-size: 15px;
+    word-break: break-all;
+    white-space: normal;
+}
+
+@keyframes blink {
+    0%, 49%   { opacity: 1; }
+    50%, 100% { opacity: 0; }
+}
+
+/* =========================================================
+   CURRICULUM: reusable list styles
+   ========================================================= */
+
+.cv-list {
+    list-style: none;
+    margin-top: 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    max-width: 720px;
+}
+
+.cv-list li {
+    font-size: 16px;
+    line-height: 22px;
+    color: #cfcfcf;
+    padding-left: 18px;
+    position: relative;
+}
+
+.cv-list li::before {
+    content: "›";
+    color: #00ff9c;
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+.cv-list strong {
+    color: #e6e6e6;
+}
+
+/* Technical stack uses the same tag look as card tags but at a comfortable size */
+.cv-tags {
+    margin-top: 12px;
+    max-width: 720px;
+    font-size: 14px;
+}
+
+
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+
+/* Tablet: shrink ASCII a bit, reclaim text width */
+@media (max-width: 1100px) {
+    .ascii-art:not(.ascii-bottom) {
+        width: 380px;
+        right: 20px;
+        font-size: 9px;
+        line-height: 9px;
+    }
+
+    main {
+        max-width: calc(100% - 400px);
+    }
+
+    .page-portfolio main {
+        max-width: 100%;
+    }
+
+    h1 {
+        font-size: 38px;
+    }
+}
+
+/* Mobile: stack header, hide the fixed ASCII (it can't coexist with narrow layouts) */
+@media (max-width: 760px) {
+    header {
+        padding: 24px;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    nav {
+        margin-left: 0;
+        width: 100%;
+    }
+
+    nav ul {
+        justify-content: flex-start;
+        gap: 15px;
+    }
+
+    h1 {
+        font-size: 30px;
+        line-height: 36px;
+    }
+
+    h2 {
+        font-size: 20px;
+        margin-top: 28px;
+    }
+
+    main {
+        padding: 24px;
+        max-width: 100%;
+    }
+
+    main a {
+        font-size: 17px;
+        white-space: normal;
+    }
+
+    footer {
+        padding: 20px 24px;
+    }
+
+    /* The fixed decorative ASCII is hidden & moved inline on mobile */
+    .ascii-art:not(.ascii-bottom) {
+        position: static;
+        transform: none;
+        width: 100%;
+        max-width: 100%;
+        margin: 30px 0 0 0;
+        font-size: 7px;
+        line-height: 7px;
+        text-align: center;
+        animation: none;
+        opacity: 0.85;
+        overflow-x: auto;
+    }
+
+    .machine-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+
+    .machine-card {
+        padding: 16px;
+    }
+}
+
+/* Very small phones */
+@media (max-width: 400px) {
+    h1 {
+        font-size: 26px;
+    }
+
+    .ascii-art:not(.ascii-bottom) {
+        font-size: 5.5px;
+        line-height: 5.5px;
+    }
+
+    .card-head {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}
+
+label{
+	display:block;
+}

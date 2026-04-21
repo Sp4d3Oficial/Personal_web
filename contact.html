@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="Contact information for Sp4d3 — LinkedIn and other professional links.">
+	<link rel="icon" href="logo.png" type="image/png">
+	<link rel="stylesheet" href="style.css">
+	<title>Contact - Sp4d3</title>
+	
+<script>
+function check_form() {
+    const name = document.getElementById("contact-name").value.trim();
+    const email = document.getElementById("contact-email").value.trim();
+    const phone = document.getElementById("contact-phone").value.trim();
+    const request = document.getElementById("contact-request").value;
+    const terms = document.getElementById("contact-terms").checked;
+
+    if (name.length < 3) {
+        console.log("Name must be at least 3 characters long.");
+        return false;
+    }
+
+    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailPattern.test(email)) {
+        console.log("Please enter a valid email address.");
+        return false;
+    }
+
+    if (phone === "") {
+        console.log("Phone number is required.");
+        return false;
+    }
+
+    const phonePattern = /^[0-9+\s()-]{7,20}$/;
+    if (!phonePattern.test(phone)) {
+        console.log("Please enter a valid phone number.");
+        return false;
+    }
+
+    if (!request) {
+        console.log("Please select a type of request.");
+        return false;
+    }
+
+    if (!terms) {
+        console.log("You must accept the terms and conditions.");
+        return false;
+    }
+
+    console.log("Form submitted successfully.");
+    return true;
+}
+</script>
+</head>
+
+<body>
+
+<header>
+
+	<hgroup>
+		<h1>Contact <strong>Sp4d3</strong></h1>
+		<p>Contact information of <strong>Sp4d3</strong></p>
+	</hgroup>
+	
+	<nav>
+		<ul>
+			<li><a href="index.html">Main Page</a></li>
+			<li><a href="portfolio.html">Portfolio</a></li>
+			<li><a href="curriculum.html">Curriculum</a></li>
+			<li><a href="contact.html" class="active">Contact</a></li>
+		</ul>	
+	</nav>
+</header>
+
+<main>
+	<form>
+		<p><label for="contact-name">Name:</label><input type="text" name="name" id="contact-name" placeholder="Enter your full name" required /></p>
+		<p><label for="contact-email">Email:</label><input type="email" name="email" id="contact-email" placeholder="Enter your email"required /></p>
+		<p><label for="contact-phone">Phone:</label><input type="tel" name="phone" id="contact-phone" placeholder="Enter your phone" required /> </p>
+		<p>
+		<label for="contact-request">What do you need?</label>
+		<select name="request" id="contact-request">
+		    <option value="" selected disabled>Type of request</option>
+			<option value="hire">I want to hire you</option>
+			<option value="work">I'm interested in to your job</option>
+			<option value="help">I need help</option>
+			<option value="others">Others..</option>
+		</select>
+		</p>
+		<p><label for="contact-terms">Terms and conditions</label><input type="checkbox" name="terms" id="contact-terms" required />	
+		<p><input type="button" name="send" value="Send" onclick="check_form();" required  /></p>
+	</form>
+		<pre class="ascii-art" aria-hidden="true">
+                                                        
+                   =@@@@@@@@@@@@@@@@=                   
+               @@@@%.              .%@@@@               
+            @@@@                        %@@@            
+          @@@                              @@@          
+        @@@                                  @@@        
+      .@@                                     .@@.      
+     %@%     .@@@@@@@@@@@@@@@@@@@@@@@@@@@@.     %@%     
+    @@.     @@*                          *@@     .@@    
+   *@-      @@           @@@@@@.          @@      -@*   
+   @@.      @@         @@#    #@@         @@       @@.  
+  @@.       @@        @@.      .@@        @@       .@@  
+  @@        @@        @@.      .@@        @@        @@. 
+ .@.        @@         @@.    .@@         @@         @. 
+ #@         @@          %@@@@@@#.         @@         @% 
+ #@         @@        @@@.    .@@@.       @@         @% 
+ .@         @@      #@@.         @@#      @@         @. 
+ .@@        @@     .@@            @@.     @@        @@  
+  @@        @@     +@.            .@*     @@       .@@  
+   @@       @@.                          .@@       @@.  
+   *@-       *@@@@@@@.    *@@@@@@@@@@@@@@@*       -@*   
+    @@.            +@..@@@@.                     .@@    
+     %@%           :@@@.                        %@%     
+      .@@                                      @@.      
+        @@@                                  @@@        
+         .@@@                              @@@          
+            @@@%                        %@@@            
+               @@@@%.              .%@@@@               
+                   =@@@@@@@@@@@@@@@@=.                  
+                                                        
+
+</pre>
+</main>
+
+<footer>
+    <p>Sp4d3 - Contact</p>
+</footer>
+
+</body>
+</html>
